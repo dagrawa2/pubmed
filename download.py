@@ -1,7 +1,6 @@
 import os
 import math
 import hashlib
-import configparser
 from ftplib import FTP
 from time import localtime, strftime
 
@@ -20,16 +19,8 @@ def check_exists(dst_path, h=None):
 	return False
 
 
-def load_config():
-	cfg = configparser.ConfigParser()
-	cfg.read('config.ini')
-	return cfg
-
-
 if __name__ == '__main__':
-	cfg = load_config()
-
-	dst_dir = cfg['paths']['metadata_dir']
+	dst_dir = 'data'
 	os.makedirs(dst_dir, exist_ok=True)
 
 	ftp_url = 'ftp.ncbi.nlm.nih.gov'
